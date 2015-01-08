@@ -1,7 +1,15 @@
-component accessors=true {
-    property greetingService;
+component {
     function default( struct rc ) {
-        param name="rc.name" default="anonymous";
-        rc.name = variables.greetingService.greet( rc.name );
+        var defaults = {
+        	'fullname'              : "",
+        	'email'                 : "",
+        	'message'               : "",
+        	'mexicanfoodpreference' : "",
+        	'favoriteboardgames'    : "",
+        	'weapon'                : "",
+        	'joinlist'              : ""
+        };
+        structAppend( rc, defaults, false ); // set false to not overwrite existing keys 
+        //writeDump(rc); abort;
     }
 }
