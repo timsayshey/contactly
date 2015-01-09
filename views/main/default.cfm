@@ -1,6 +1,7 @@
 <cfoutput>
+	
 	<h1>Le Contact Form</h1>
-	<form class="form-horizontal well" action="">
+	<form class="form-horizontal well" method="post" action="#buildURL('main.submit')#">
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Name</label>
 			<div class="col-sm-10">
@@ -33,10 +34,10 @@
 			<label class="col-sm-2 control-label">Favorite Board Games</label>
 			<div class="col-sm-10">
 				<select name="favoriteboardgames" multiple class="form-control">
-					<option #rc.favoriteboardgames eq "Settlers of Catan" ? "selected" : ""#>Settlers of Catan</option>
-					<option #rc.favoriteboardgames eq "Ticket to Ride" ? "selected" : ""#>Ticket to Ride</option>
-					<option #rc.favoriteboardgames eq "Dominion" ? "selected" : ""#>Dominion</option>
-					<option #rc.favoriteboardgames eq "Bang!" ? "selected" : ""#>Bang!</option>
+					<option #listFind(rc.favoriteboardgames,"Settlers of Catan") ? "selected" : ""#>Settlers of Catan</option>
+					<option #listFind(rc.favoriteboardgames,"Ticket to Ride") ? "selected" : ""#>Ticket to Ride</option>
+					<option #listFind(rc.favoriteboardgames,"Dominion") ? "selected" : ""#>Dominion</option>
+					<option #listFind(rc.favoriteboardgames,"Bang!") ? "selected" : ""#>Bang!</option>
 				</select>
 			</div>
 		</div>
@@ -58,7 +59,7 @@
 			<div class="col-sm-offset-2 col-sm-10">
 				<div class="checkbox">
 					<label>
-						<input name="joinlist" type="checkbox"  #isBoolean(rc.joinlist) eq "true" ? "checked" : ""#> Add me to some mailing list
+						<input name="joinlist" value="1" type="checkbox"  #isBoolean(rc.joinlist) AND rc.joinlist ? "checked" : ""#> Add me to some mailing list
 					</label>
 				</div>
 			</div>
