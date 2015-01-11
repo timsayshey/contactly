@@ -1,7 +1,7 @@
 <cfoutput>
 	
 	<h1>Le Contact Form</h1>
-	<form class="form-horizontal well" method="post" action="#buildURL('main.submit')#">
+	<form class="form-horizontal well" method="post" action="#buildURL('contactly.submit')#">
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Name</label>
 			<div class="col-sm-10">

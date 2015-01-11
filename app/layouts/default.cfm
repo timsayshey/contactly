@@ -11,10 +11,10 @@
 		<title>Bootstrap</title>
 		
 		<!-- Bootstrap core CSS -->
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/contactly/assets/css/bootstrap.min.css" rel="stylesheet">
 		
 		<!-- Custom styles for this template -->
-		<link href="assets/css/navbar-static-top.css" rel="stylesheet">
+		<link href="/contactly/assets/css/navbar-static-top.css" rel="stylesheet">
 		
 		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 		<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -35,10 +35,10 @@
 	<div class="container">
 	<div class="navbar-header">
 		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="##" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-		<a class="navbar-brand" href="javascript:void(0)">Contactly</a> </div>
+		<a class="navbar-brand" href="#buildURL('contactly.default')#">Contactly</a> </div>
 	<div id="navbar" class="navbar-collapse collapse">
 	<ul class="nav navbar-nav">
-	<li class="active"><a href="javascript:void(0)">Home</a></li>
+	<li class="active"><a href="#buildURL('contactly.default')#">Home</a></li>
 	</div>
 	<!--/.nav-collapse -->
 	</div>
