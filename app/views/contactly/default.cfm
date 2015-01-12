@@ -1,17 +1,30 @@
 <cfoutput>
-	
-	<h1>Le Contact Form</h1>
-	<form class="form-horizontal well" method="post" action="#buildURL('contactly.submit')#">
+
+	<cfset request.pagename = "Contact Form">
+
+	<h1>#request.pagename#</h1>
+
+	<!--- Error message --->
+	<cfif structKeyExists(rc,"errorMessage")>
+		<div class="alert alert-danger" role="alert">
+			<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+			<span class="sr-only">Error:</span>
+			#rc.errorMessage#
+		</div>
+	</cfif>
+
+
+	<form class="form-horizontal well" method="post" action="#buildURL('contactly.submit')#" data-parsley-validate>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Name</label>
 			<div class="col-sm-10">
-				<input name="fullname" value="#rc.fullname#" type="text" class="form-control" placeholder="Ex: Chuck Norris">
+				<input name="fullname" value="#rc.fullname#" type="text" class="form-control" placeholder="Ex: Chuck Norris" />
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-10">
-				<input name="email" value="#rc.email#" type="text" class="form-control" placeholder="Ex: gmail@chucknorris.com">
+				<input name="email" value="#rc.email#" type="email" class="form-control" placeholder="Ex: gmail@chucknorris.com" data-parsley-trigger="change" required="" />
 			</div>
 		</div>
 		<div class="form-group">
@@ -24,7 +37,7 @@
 			<label class="col-sm-2 control-label">Taco or Burrito</label>
 			<div class="col-sm-10">
 				<select name="mexicanfoodpreference" class="form-control">
-					<option #!len(trim(rc.mexicanfoodpreference)) ? "selected" : ""# value="">Pick One</option>
+					<option value="">Pick one...</option>
 					<option #rc.mexicanfoodpreference eq "Taco" ? "selected" : ""#>Taco</option>
 					<option #rc.mexicanfoodpreference eq "Burrito" ? "selected" : ""#>Burrito</option>
 				</select>
@@ -45,13 +58,13 @@
 			<label class="col-sm-2 control-label">Pick a weapon</label>
 			<div class="col-sm-10">
 				<label class="radio-inline">
-					<input name="weapon" type="radio" #rc.weapon eq "Blaster" ? "checked" : ""# value="Blaster"> Blaster
+					<input name="weapon" type="radio" #rc.weapon eq "Blaster" ? "checked" : ""# value="Blaster" /> Blaster
 				</label>
 				<label class="radio-inline">
-					<input name="weapon" type="radio" #rc.weapon eq "Lightsaber" ? "checked" : ""# value="Lightsaber"> Lightsaber
+					<input name="weapon" type="radio" #rc.weapon eq "Lightsaber" ? "checked" : ""# value="Lightsaber" /> Lightsaber
 				</label>
 				<label class="radio-inline">
-					<input name="weapon" type="radio" #rc.weapon eq "Force Lightening" ? "checked" : ""# value="Force Lightening"> Force Lightening
+					<input name="weapon" type="radio" #rc.weapon eq "Force Lightening" ? "checked" : ""# value="Force Lightening" /> Force Lightening
 				</label>
 			</div>
 		</div>
@@ -59,7 +72,7 @@
 			<div class="col-sm-offset-2 col-sm-10">
 				<div class="checkbox">
 					<label>
-						<input name="joinlist" value="1" type="checkbox"  #isBoolean(rc.joinlist) AND rc.joinlist ? "checked" : ""#> Add me to some mailing list
+						<input name="joinlist" value="1" type="checkbox"  #isBoolean(rc.joinlist) AND rc.joinlist ? "checked" : ""# /> Add me to some mailing list
 					</label>
 				</div>
 			</div>

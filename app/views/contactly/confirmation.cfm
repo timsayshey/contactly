@@ -1,6 +1,8 @@
 <cfoutput>
 
-	<h1>Confirmation</h1>
+	<cfset request.pagename = "Confirmation">
+
+	<h1>#request.pagename#</h1>
 
 	<table class="table table-striped table-bordered">
 	  <tr>
@@ -29,7 +31,10 @@
 	  </tr>
 	  <tr>
 		<th>Join List</th> 
-		<td>#application.contactlySession.get(key="joinlist")#</td>	  	
+		<td>
+			<cfset joinlist = application.contactlySession.get(key="joinlist") />
+			#isBoolean(joinlist) AND joinlist ? "Yes" : "No"#
+		</td>	  	
 	  </tr>
 	</table>
 

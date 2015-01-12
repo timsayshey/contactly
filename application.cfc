@@ -8,16 +8,13 @@ component extends="org.corfield.framework" {
 	this.mappings["/"] = getDirectoryFromPath(getCurrentTemplatePath());
 	this.name = 'fw1-contactly';
 	variables.framework = {
-		base = "/app",
-		reloadApplicationOnEveryRequest="true",
+		base = "/app",		
 		home = 'contactly.default',
 		error = 'contactly.error',
-		generateSES = false,
-		SESOmitIndex = false,
-		reload = 'reload',
-		password = 'true'
+		reloadApplicationOnEveryRequest="true"
 	};	
 
+	// Other Application Setup
     function setupApplication() {
         // bean factory should look in the model tree for services and beans
         var bf = new org.corfield.IOC( "app/model" );

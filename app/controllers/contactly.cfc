@@ -6,18 +6,7 @@ component accessors=true {
     * Initialize the contactly controller
     **/
     public struct function init( fw ) {
-        variables.fw = fw;
-        
-        // Default values for form fields
-        variables.formdefaults = {
-            'fullname'              : "",
-            'email'                 : "",
-            'message'               : "",
-            'mexicanfoodpreference' : "",
-            'favoriteboardgames'    : "",
-            'weapon'                : "",
-            'joinlist'              : ""
-        }; 
+        variables.fw = fw;        
         return this;
     }
 
@@ -26,7 +15,7 @@ component accessors=true {
     **/
     public boolean function default( struct rc ) {
 		// Set Form Defaults
-		structAppend( rc, variables.formdefaults, false );
+		structAppend( rc, variables.contactly.fieldDefaults(), false );
     	return true;
     }
 
@@ -35,13 +24,18 @@ component accessors=true {
     **/
     public boolean function submit( struct rc ) {
 		// Set Form Defaults
-		structAppend( rc, variables.formdefaults, false );
+		structAppend( rc, variables.contactly.fieldDefaults(), false );
         
 		// Insert values in to session facade
-		variables.contactly.contactlyPostHandler( rc=rc, formFieldsList=StructKeyList(variables.formdefaults) );       
-		
-        // Redirect to the confirmation page
-		variables.fw.redirect('contactly.confirmation');
+		rc = variables.contactly.postHandler( rc=rc, formFieldsList=StructKeyList(variables.contactly.fieldDefaults()) );        
+
+        if(structKeyExists(rc,"errorMessage")) {
+            // Has an error message, return user back to form with message and let parseley do the rest
+            variables.fw.setView('contactly.default');
+        } else {
+            // Valid go to confirmation page
+            variables.fw.redirect('contactly.confirmation');
+        }       
 
     	return true;
     }
