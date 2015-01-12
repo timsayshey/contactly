@@ -13,8 +13,7 @@
 		</div>
 	</cfif>
 
-
-	<form class="form-horizontal well" method="post" action="#buildURL('contactly.submit')#" data-parsley-validate>
+	<form class="form-horizontal well" id="parsley-form" method="post" action="#buildURL('contactly.submit')#" data-parsley-validate>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Name</label>
 			<div class="col-sm-10">
@@ -22,9 +21,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label">Email</label>
+			<label class="col-sm-2 control-label">Email*</label>
 			<div class="col-sm-10">
-				<input name="email" value="#rc.email#" type="email" class="form-control" placeholder="Ex: gmail@chucknorris.com" data-parsley-trigger="change" required="" />
+				<input name="email" value="#rc.email#" type="email" class="form-control" placeholder="Ex: gmail@chucknorris.com" data-parsley-trigger="change mouseenter mouseleave focusin focusout" data-parsley-required="true" />
 			</div>
 		</div>
 		<div class="form-group">

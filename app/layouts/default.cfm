@@ -47,23 +47,9 @@
 
 	<!-- Placed at the end of the document so the pages load faster --> 
 	<script src="assets/js/jquery.min.js"></script> 
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/app.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>	
 	<script src="assets/js/parsley.min.js"></script>
-	<script>
-		window.ParsleyConfig = {
-		    errorClass: 'has-error',
-		    successClass: 'has-success',
-		    classHandler: function(ParsleyField) {
-		        return ParsleyField.$element.parents('.form-group');
-		    },
-		    errorsContainer: function(ParsleyField) {
-		        return ParsleyField.$element.parents('.form-group');
-		    },
-		    errorsWrapper: '<div class="help-block col-sm-10 col-sm-offset-2">',
-		    errorTemplate: '<div></div>'
-		};
-	</script> 
+	<script src="assets/js/app.js"></script>
 
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
 	<script src="assets/js/ie10-viewport-bug-workaround.js"></script>
