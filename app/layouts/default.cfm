@@ -11,7 +11,7 @@
 		<title>Contactly#structKeyExists(request,"pagename") ? " | " & request.pagename : ""#</title>
 		
 		<!-- Bootstrap core CSS -->
-		<link href="/contactly/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 		
 		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
 		<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -23,7 +23,7 @@
 			  <script src="assets/js/respond.min.js"></script>
 			<![endif]-->
 
-		<link href="/contactly/assets/css/style.css" rel="stylesheet">	
+		<link href="assets/css/style.css" rel="stylesheet">	
 	</head>
 	
 	<body style="zoom: 1;">
